@@ -10,5 +10,5 @@ sandbox
 - [ ] Validate features
 - [ ] Write Doc/stringdoc
 - [ ] Run PEP8 validation
-- [ ] Clean
-- [ ] Realease
+- [ ] Clean & last check
+- [ ] Release
