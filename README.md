@@ -21,10 +21,10 @@ def DocString2MD.__getdoc(self, obj):
 > Call inspect.getdoc with obj parameter.<br />
 > If docstring is not usable returns an empty string.<br />
 ><br />
-> __Args:__ <br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str:docstring<br />
+> <b>Args:</b></br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    str:docstring  <br />
 ><br />
-> __Returns:__ <br />
+> - Returns:
 >    str: docstring<br />
 ><br/>
 ```
