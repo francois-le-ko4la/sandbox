@@ -65,7 +65,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ````python
 class DocString2MD:
-```
+````
 
 ><br />
 > Class DocString2MD : export Google docstring to MD File. <br />
