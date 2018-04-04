@@ -69,12 +69,12 @@ class DocString2MD:
 
 ><br />
 > Class DocString2MD : export Google docstring to MD File. <br />
+> <br />
 
 #### Function DocString2MD.__create_doc
 ````python
 def DocString2MD.__create_doc(self, member, member_isclass=False, class_member=False):
 ````
-
 ><br />
 > Updates self.__output according to args provided. <br />
 >  <br />
@@ -85,11 +85,11 @@ def DocString2MD.__create_doc(self, member, member_isclass=False, class_member=F
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   None <br />
+> <br />
 #### Function DocString2MD.__extract_class
 ````python
 def DocString2MD.__extract_class(self, module):
 ````
-
 ><br />
 > Inspects classes in a module <br />
 > Call self.__create_doc() & self.__extract_function() <br />
@@ -99,33 +99,33 @@ def DocString2MD.__extract_class(self, module):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   None <br />
+> <br />
 #### Function DocString2MD.__extract_function
 ````python
 def DocString2MD.__extract_function(self, item, class_member=False):
 ````
-
 ><br />
 > Inspects functions in a moddule. <br />
 > Call self.__create_doc() <br />
 >  <br />
 > <b> Args: </b> <br />
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   itms (obj): inspect obect <br />
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   item (obj): inspect obect <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   class_member (bool): False by default / if def in class -> True <br />
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   None <br />
+> <br />
 #### Function DocString2MD.__format_docstring
 ````python
 def DocString2MD.__format_docstring(self, docstring):
 ````
-
 ><br />
 >  <br />
+> <br />
 #### Function DocString2MD.__getdoc
 ````python
 def DocString2MD.__getdoc(self, obj):
 ````
-
 ><br />
 > Call inspect.getdoc with obj parameter. <br />
 > If docstring is not usable returns an empty string. <br />
@@ -135,11 +135,11 @@ def DocString2MD.__getdoc(self, obj):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   str: docstring <br />
+> <br />
 #### Function DocString2MD.__writedoc
 ````python
 def DocString2MD.__writedoc(self):
 ````
-
 ><br />
 > Writes the content in the file <br />
 >  <br />
@@ -148,11 +148,11 @@ def DocString2MD.__writedoc(self):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   bool: The return value. True for success, False otherwise. <br />
+> <br />
 #### Function DocString2MD.__init__
 ````python
 def DocString2MD.__init__(self, module_name, export_file=None):
 ````
-
 ><br />
 > Init the ConfigFromJson Class <br />
 > This function define default attributs. <br />
@@ -169,11 +169,11 @@ def DocString2MD.__init__(self, module_name, export_file=None):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   obj <br />
+> <br />
 #### Function DocString2MD.check_module
 ````python
 def DocString2MD.check_module(self):
 ````
-
 ><br />
 > Checks if module can be imported without actually importing it. <br />
 > Updates self.__module_spec in order to import the module. <br />
@@ -183,11 +183,11 @@ def DocString2MD.check_module(self):
 >  <br />
 > <b> Retuns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   bool: The return value. True for success, False otherwise. <br />
+> <br />
 #### Function DocString2MD.extract_doc
 ````python
 def DocString2MD.extract_doc(self):
 ````
-
 ><br />
 > <b> Extract docstring inside the module and updates self.__output: </b> <br />
 > - Header <br />
@@ -199,11 +199,11 @@ def DocString2MD.extract_doc(self):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   None <br />
+> <br />
 #### Function DocString2MD.get_doc
 ````python
 def DocString2MD.get_doc(self):
 ````
-
 ><br />
 > Returns self.__output <br />
 >  <br />
@@ -212,11 +212,11 @@ def DocString2MD.get_doc(self):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   str: self.__output <br />
+> <br />
 #### Function DocString2MD.import_module
 ````python
 def DocString2MD.import_module(self):
 ````
-
 ><br />
 > Import the module via the passed in module specification <br />
 > Returns the newly imported module and updates attributes self.__module <br />
@@ -226,3 +226,4 @@ def DocString2MD.import_module(self):
 >  <br />
 > <b> Returns: </b> <br />
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   None <br />
+> <br />
