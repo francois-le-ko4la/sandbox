@@ -17,6 +17,7 @@ modif
 ```python
 def DocString2MD.__getdoc(self, obj):
 ```
+><br/>
 > Call inspect.getdoc with obj parameter.<br />
 > If docstring is not usable returns an empty string.<br />
 ><br />
@@ -25,6 +26,7 @@ def DocString2MD.__getdoc(self, obj):
 ><br />
 > __Returns:__<br />
 >    str: docstring<br />
+><br/>
 ```
 
 #### Function DocString2MD.__writedoc(self):
