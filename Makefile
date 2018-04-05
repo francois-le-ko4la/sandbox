@@ -25,7 +25,7 @@ install:
 	@sudo ./setup.py install
 
 clean:
-	@sudo rm -Rf *.egg *.egg-info .cache .coverage .tox build dist docs/build htmlcov
+	@sudo rm -Rf *.egg *.egg-info .cache .coverage .tox build dist docs/build htmlcov .pytest_cache
 	@sudo find -depth -type d -name __pycache__ -exec rm -Rf {} \;
 	@sudo find -type f -name '*.pyc' -delete
 
