@@ -87,75 +87,75 @@ This script is provided in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ## Dev notes
-[ConvMD()](#92dd76e2526bcd318d24dd06abc492ddd9aa060a)
-[ConvMD.add_tag(begin_tag, end_tag)](#a340e0fb29090ceda39c781d0287b409a6d506b2)
-[ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)](#dd0d60e32851a831bb2a9357ccf94a0aa0775ac9)
-[ConvMD.repl_str(old_string, new_string)](#93e1829c90b94cb63174a733726fc9158da243b1)
-[DocString2MD()](#1a1bc9270ef9889e3e1ff955ad391cd75f9ceb3e)
-[@Property: module_name](#efca858446dedd94f56d684293129b4b92e514db)
-[DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)](#49efdc7fb225b82ba060ca1b356aad67e5a0c1e2)
-[DocString2MD.__writedoc(self)](#4ecf66e6c1632fbe76c05e842b961fc9b7434836)
-[DocString2MD.get_doc(self)](#8b167cfe759596ebe08fe184e4143d650b9948ea)
-[DocString2MD.import_module(self)](#ab424550d18ae8bae0a1ce66f4d41e8ac19750a9)
-[DocStringObj()](#8daf5988f2974abc7e6394d3c745d44ba43fd5c7)
-[@Property: value](#6f76a1931dcc00e9d3c07f0346c22a49bb507bc8)
-[DocStringObj.__init__(self, value)](#87af9694b9afa3eaf10e3cb6657f153ee4209b3c)
-[DocStringObj.__repr__(self)](#ac39c86c895b381c7620540f1b29b571cd8d58e0)
-[DocStringObj.__str__(self)](#b9282981f37b00239f3eff16d9da3412466c00ff)
-[ExtractPythonModule()](#2498540c5ed9310facae548d4ba9cd71b162470d)
-[ExtractPythonModule.__check_module(func)](#c215001384acf81c10359befa3395fa69ce35a55)
-[ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)](#359967e59a746508900585f22f68bc1a99fa3f08)
-[ExtractPythonModule.__extractdecorator(self, member)](#c50284af2411ebfdec40bcd172207e4b340f2023)
-[ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)](#27b22c82207664254f720cc931426a77bf3b1bf5)
-[ExtractPythonModule.__findinline(self, line, search_item)](#c5f653d758516a2dd23a12d8a4efef8324d9b062)
-[ExtractPythonModule.__init__(self, module_name)](#aec9f32e063906787c5906d4fb3b7a3ad54d9dd0)
-[ExtractPythonModule.__linetype(self, line)](#0305ba5a01d7af75a39a63a952e6532d836d0830)
-[ExtractPythonModule.extract(self)](#a7312d4fccc4e5885ad9dbe26bda903340444366)
-[ExtractPythonModule.import_module(self)](#08f40447cb4474fe9b892c10ad6b4c88ee0e341f)
-[LineType()](#d65fbaed25ebe482588b51e3000c5d65f7f0b6a9)
-[MembersObj()](#393a95ae46f991e26e9ef12082af0ceeec81c025)
-[MembersObj.__getitem__(self, index)](#5bb035ab7a37d6fb4ac0d63feb7ae1f0a91947a8)
-[MembersObj.__init__(self)](#f8edcec0fb8181a28713b55f08a59a4881bbb9a7)
-[MembersObj.__len__(self)](#21079dc8d29c6d783d26b1d2426a62f5a1af0c0b)
-[MembersObj.__repr__(self)](#8a055d95e4aac47645e9e5e966536ce1f1a7c3d5)
-[MembersObj.__setitem__(self, index, value)](#bc654d0b0ccbd43dbc3e3ef5731d9dfd4ab4b98a)
-[MembersObj.__str__(self)](#d1491d742bd8ce5f9f09df77cfc00f9809f51ba2)
-[MembersObj.items(self)](#4bbbf05855d621ad0fcedef8da6c57ffd4a0396e)
-[MembersObj.sortkeys(self)](#dd169b053302842c9d4e56e149472595afde1411)
-[ModuleObj()](#ad7e199936a9f0900d22f9146d9c6122e07bad8f)
-[ModuleObj.__init__(self, name, full_name, docstring, level=0)](#2d22ce06ca9358b7c3edffc10f0bdee205d1911c)
-[ModuleObj.__repr__(self)](#8b175a86b227b43e4afc2c119f380c060ce264b3)
-[ModuleObj.__str__(self)](#1c7845109b61b62b699dd9f1423f808d757410a8)
-[ModuleObj.getallstr(self, member=None)](#7fbcc4146a8608bdfecd6c87e4a940598c913196)
-[ModuleObj.gettoc(self, member=None)](#18e852be5041c36903e5fd149222a046dd707ff6)
-[PythonObj.getlink(self)](#689ea8cf936d2e124206fa9cb72dc92c8c24595c)
-[MyConst()](#e291187727c46a2a7059bc2ccf1382ddbbad7a35)
-[PythonDefinitionObj()](#f8db111c5a1f08313ce3428f1d33236b5e45e5aa)
-[@Property: value](#6f76a1931dcc00e9d3c07f0346c22a49bb507bc8)
-[PythonDefinitionObj.__init__(self, value)](#f92b4947fd1e614b2dcab47aa233379b58ccdefe)
-[PythonDefinitionObj.__repr__(self)](#bbf1d86197e458205810c7b3ee145de586016b66)
-[PythonDefinitionObj.__str__(self)](#d178bfa378031ea38a69d09ccb07288e60c4796f)
-[PythonObj()](#780f202252b8da2c8bc85f829e382aedbac554de)
-[PythonObj.__init__(self, name, full_name, docstring, level)](#32fa5e8d0fc098c6b016d2b3f8456f79f9d19edd)
-[PythonObj.__repr__(self)](#42878b1f331162ae5974baefb33db40a796468d9)
-[PythonObj.__str__(self)](#d073303de05e300512174a05689ceeafb8aae5df)
-[PythonObj.getlink(self)](#689ea8cf936d2e124206fa9cb72dc92c8c24595c)
-[ReadFile()](#99b7f0b4d121c98a3c7fd7ceb688997305523603)
-[@Property: filename](#4419219f9e4f4d1f83af7a9364d51e4c51a9cccf)
-[ReadFile.__init__(self, filename)](#c8e5cccc0708cd0536dd47de06263f45c8e2ecb2)
-[ReadFile.__repr__(self)](#32b969e1552a6e1cab80c5f07855d7400c34646c)
-[ReadFile.__str__(self)](#8a8aa432137a04f8144a93d22b9c61b774a3a2e1)
-[ReadFile.get(self)](#e5f2319ad83767af70e8fed672c4f7680b176f18)
-[ReadFile.isdefined(self)](#55921ecc8e7838c202ccc204e430a0932d1edd66)
-[Tag()](#fcd5f72200e4464c35485721a8a2b0e13174c384)
-[TitleObj()](#980cf4e5d783b767ca441cbf071099d0f16f4d1a)
-[@Property: level](#011984f79f02e5c60873b19559bc142571679ea2)
-[@Property: title](#8d95c4c692e61b9ab4b1f02ac0758af0b1b9bc45)
-[TitleObj.__init__(self, title, level)](#21f2d461732e11dbfdaa658a6b6d5cc61c999328)
-[TitleObj.__repr__(self)](#610a9fe9960395f8ac80cb52ffc9b35d384c5502)
-[TitleObj.__str__(self)](#208f8142eb3011693506258da1362ee3b2d81c7b)
-[TitleObj.getanchor(self)](#3ae67beddf00ea4d0c3dd55d0a6e32b0807ffe00)
-[wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))](#4ab498195731ad085c678a9e05353f0d72327513)
+[ConvMD()](#92dd76e2526bcd318d24dd06abc492ddd9aa060a)<br />
+[ConvMD.add_tag(begin_tag, end_tag)](#a340e0fb29090ceda39c781d0287b409a6d506b2)<br />
+[ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)](#dd0d60e32851a831bb2a9357ccf94a0aa0775ac9)<br />
+[ConvMD.repl_str(old_string, new_string)](#93e1829c90b94cb63174a733726fc9158da243b1)<br />
+[DocString2MD()](#1a1bc9270ef9889e3e1ff955ad391cd75f9ceb3e)<br />
+[@Property: module_name](#efca858446dedd94f56d684293129b4b92e514db)<br />
+[DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)](#49efdc7fb225b82ba060ca1b356aad67e5a0c1e2)<br />
+[DocString2MD.__writedoc(self)](#4ecf66e6c1632fbe76c05e842b961fc9b7434836)<br />
+[DocString2MD.get_doc(self)](#8b167cfe759596ebe08fe184e4143d650b9948ea)<br />
+[DocString2MD.import_module(self)](#ab424550d18ae8bae0a1ce66f4d41e8ac19750a9)<br />
+[DocStringObj()](#8daf5988f2974abc7e6394d3c745d44ba43fd5c7)<br />
+[@Property: value](#6f76a1931dcc00e9d3c07f0346c22a49bb507bc8)<br />
+[DocStringObj.__init__(self, value)](#87af9694b9afa3eaf10e3cb6657f153ee4209b3c)<br />
+[DocStringObj.__repr__(self)](#ac39c86c895b381c7620540f1b29b571cd8d58e0)<br />
+[DocStringObj.__str__(self)](#b9282981f37b00239f3eff16d9da3412466c00ff)<br />
+[ExtractPythonModule()](#2498540c5ed9310facae548d4ba9cd71b162470d)<br />
+[ExtractPythonModule.__check_module(func)](#c215001384acf81c10359befa3395fa69ce35a55)<br />
+[ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)](#359967e59a746508900585f22f68bc1a99fa3f08)<br />
+[ExtractPythonModule.__extractdecorator(self, member)](#c50284af2411ebfdec40bcd172207e4b340f2023)<br />
+[ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)](#27b22c82207664254f720cc931426a77bf3b1bf5)<br />
+[ExtractPythonModule.__findinline(self, line, search_item)](#c5f653d758516a2dd23a12d8a4efef8324d9b062)<br />
+[ExtractPythonModule.__init__(self, module_name)](#aec9f32e063906787c5906d4fb3b7a3ad54d9dd0)<br />
+[ExtractPythonModule.__linetype(self, line)](#0305ba5a01d7af75a39a63a952e6532d836d0830)<br />
+[ExtractPythonModule.extract(self)](#a7312d4fccc4e5885ad9dbe26bda903340444366)<br />
+[ExtractPythonModule.import_module(self)](#08f40447cb4474fe9b892c10ad6b4c88ee0e341f)<br />
+[LineType()](#d65fbaed25ebe482588b51e3000c5d65f7f0b6a9)<br />
+[MembersObj()](#393a95ae46f991e26e9ef12082af0ceeec81c025)<br />
+[MembersObj.__getitem__(self, index)](#5bb035ab7a37d6fb4ac0d63feb7ae1f0a91947a8)<br />
+[MembersObj.__init__(self)](#f8edcec0fb8181a28713b55f08a59a4881bbb9a7)<br />
+[MembersObj.__len__(self)](#21079dc8d29c6d783d26b1d2426a62f5a1af0c0b)<br />
+[MembersObj.__repr__(self)](#8a055d95e4aac47645e9e5e966536ce1f1a7c3d5)<br />
+[MembersObj.__setitem__(self, index, value)](#bc654d0b0ccbd43dbc3e3ef5731d9dfd4ab4b98a)<br />
+[MembersObj.__str__(self)](#d1491d742bd8ce5f9f09df77cfc00f9809f51ba2)<br />
+[MembersObj.items(self)](#4bbbf05855d621ad0fcedef8da6c57ffd4a0396e)<br />
+[MembersObj.sortkeys(self)](#dd169b053302842c9d4e56e149472595afde1411)<br />
+[ModuleObj()](#ad7e199936a9f0900d22f9146d9c6122e07bad8f)<br />
+[ModuleObj.__init__(self, name, full_name, docstring, level=0)](#2d22ce06ca9358b7c3edffc10f0bdee205d1911c)<br />
+[ModuleObj.__repr__(self)](#8b175a86b227b43e4afc2c119f380c060ce264b3)<br />
+[ModuleObj.__str__(self)](#1c7845109b61b62b699dd9f1423f808d757410a8)<br />
+[ModuleObj.getallstr(self, member=None)](#7fbcc4146a8608bdfecd6c87e4a940598c913196)<br />
+[ModuleObj.gettoc(self, member=None)](#18e852be5041c36903e5fd149222a046dd707ff6)<br />
+[PythonObj.getlink(self)](#689ea8cf936d2e124206fa9cb72dc92c8c24595c)<br />
+[MyConst()](#e291187727c46a2a7059bc2ccf1382ddbbad7a35)<br />
+[PythonDefinitionObj()](#f8db111c5a1f08313ce3428f1d33236b5e45e5aa)<br />
+[@Property: value](#6f76a1931dcc00e9d3c07f0346c22a49bb507bc8)<br />
+[PythonDefinitionObj.__init__(self, value)](#f92b4947fd1e614b2dcab47aa233379b58ccdefe)<br />
+[PythonDefinitionObj.__repr__(self)](#bbf1d86197e458205810c7b3ee145de586016b66)<br />
+[PythonDefinitionObj.__str__(self)](#d178bfa378031ea38a69d09ccb07288e60c4796f)<br />
+[PythonObj()](#780f202252b8da2c8bc85f829e382aedbac554de)<br />
+[PythonObj.__init__(self, name, full_name, docstring, level)](#32fa5e8d0fc098c6b016d2b3f8456f79f9d19edd)<br />
+[PythonObj.__repr__(self)](#42878b1f331162ae5974baefb33db40a796468d9)<br />
+[PythonObj.__str__(self)](#d073303de05e300512174a05689ceeafb8aae5df)<br />
+[PythonObj.getlink(self)](#689ea8cf936d2e124206fa9cb72dc92c8c24595c)<br />
+[ReadFile()](#99b7f0b4d121c98a3c7fd7ceb688997305523603)<br />
+[@Property: filename](#4419219f9e4f4d1f83af7a9364d51e4c51a9cccf)<br />
+[ReadFile.__init__(self, filename)](#c8e5cccc0708cd0536dd47de06263f45c8e2ecb2)<br />
+[ReadFile.__repr__(self)](#32b969e1552a6e1cab80c5f07855d7400c34646c)<br />
+[ReadFile.__str__(self)](#8a8aa432137a04f8144a93d22b9c61b774a3a2e1)<br />
+[ReadFile.get(self)](#e5f2319ad83767af70e8fed672c4f7680b176f18)<br />
+[ReadFile.isdefined(self)](#55921ecc8e7838c202ccc204e430a0932d1edd66)<br />
+[Tag()](#fcd5f72200e4464c35485721a8a2b0e13174c384)<br />
+[TitleObj()](#980cf4e5d783b767ca441cbf071099d0f16f4d1a)<br />
+[@Property: level](#011984f79f02e5c60873b19559bc142571679ea2)<br />
+[@Property: title](#8d95c4c692e61b9ab4b1f02ac0758af0b1b9bc45)<br />
+[TitleObj.__init__(self, title, level)](#21f2d461732e11dbfdaa658a6b6d5cc61c999328)<br />
+[TitleObj.__repr__(self)](#610a9fe9960395f8ac80cb52ffc9b35d384c5502)<br />
+[TitleObj.__str__(self)](#208f8142eb3011693506258da1362ee3b2d81c7b)<br />
+[TitleObj.getanchor(self)](#3ae67beddf00ea4d0c3dd55d0a6e32b0807ffe00)<br />
+[wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))](#4ab498195731ad085c678a9e05353f0d72327513)<br />
 
 ### <a id="92dd76e2526bcd318d24dd06abc492ddd9aa060a"></a> ConvMD()
 
@@ -908,4 +908,4 @@ def wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__'
 > This is a convenience function to simplify applying partial() to<br />
 > update_wrapper().<br />
 > <br />
---- 0.058852434158325195 seconds ---
+--- 0.058393239974975586 seconds ---
