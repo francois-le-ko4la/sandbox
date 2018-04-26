@@ -157,7 +157,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 [TitleObj.getanchor(self)](#-titleobjgetanchorself)<br />
 [wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))](#-wrapswrapped-assigned__module__-__name__-__qualname__-__doc__-__annotations__-updated__dict__)<br />
 
-### <a id="-convmd"></a> ConvMD()
+### ConvMD()
 
 ```python
 class ConvMD(object):
@@ -166,7 +166,7 @@ class ConvMD(object):
 > <br />
 > Prepare MD string<br />
 > <br />
-#### <a id="-convmdadd_tagbegin_tag-end_tag"></a> ConvMD.add_tag(begin_tag, end_tag)
+#### ConvMD.add_tag(begin_tag, end_tag)
 
 ```python
 def ConvMD.add_tag(begin_tag, end_tag):
@@ -185,7 +185,7 @@ def ConvMD.add_tag(begin_tag, end_tag):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  decorated function<br />
 > <br />
-#### <a id="-convmdrepl_beg_endbegin_regexp-end_regexp-begin_tag-end_tag"></a> ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)
+#### ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)
 
 ```python
 def ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag):
@@ -207,7 +207,7 @@ def ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  decorated function<br />
 > <br />
-#### <a id="-convmdrepl_strold_string-new_string"></a> ConvMD.repl_str(old_string, new_string)
+#### ConvMD.repl_str(old_string, new_string)
 
 ```python
 def ConvMD.repl_str(old_string, new_string):
@@ -224,7 +224,7 @@ def ConvMD.repl_str(old_string, new_string):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  decorated function<br />
 > <br />
-### <a id="-docstring2md"></a> DocString2MD()
+### DocString2MD()
 
 ```python
 class DocString2MD(object):
@@ -233,7 +233,7 @@ class DocString2MD(object):
 > <br />
 > Class DocString2MD : export Google docstring to MD File.<br />
 > <br />
-#### <a id="-property-docstring2mdmodule_name"></a> @Property: DocString2MD.module_name
+#### @Property: DocString2MD.module_name
 
 ```python
 @property
@@ -246,7 +246,7 @@ def DocString2MD.module_name(self, module_name):
 > <br />
 > @Property<br />
 > <br />
-#### <a id="-docstring2mdinitself-module_name-export_filenone-runtime_filenone-requirements_filenone-uml_filenone"></a> DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)
+#### DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)
 
 ```python
 def DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None):
@@ -268,7 +268,7 @@ def DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  obj<br />
 > <br />
-#### <a id="-docstring2md__writedocself"></a> DocString2MD.__writedoc(self)
+#### DocString2MD.__writedoc(self)
 
 ```python
 def DocString2MD.__writedoc(self):
@@ -283,7 +283,7 @@ def DocString2MD.__writedoc(self):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bool: The return value. True for success, False otherwise.<br />
 > <br />
-#### <a id="-docstring2mdget_docself"></a> DocString2MD.get_doc(self)
+#### DocString2MD.get_doc(self)
 
 ```python
 def DocString2MD.get_doc(self):
@@ -299,7 +299,7 @@ def DocString2MD.get_doc(self):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  str: self.__output<br />
 > <br />
-#### <a id="-docstring2mdimport_moduleself"></a> DocString2MD.import_module(self)
+#### DocString2MD.import_module(self)
 
 ```python
 def DocString2MD.import_module(self):
@@ -308,7 +308,7 @@ def DocString2MD.import_module(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-docstringobj"></a> DocStringObj()
+### DocStringObj()
 
 ```python
 class DocStringObj(object):
@@ -318,7 +318,7 @@ class DocStringObj(object):
 > String to store and prepare the docstring.<br />
 > This object will become an attribute.<br />
 > <br />
-#### <a id="-property-docstringobjvalue"></a> @Property: DocStringObj.value
+#### @Property: DocStringObj.value
 
 ```python
 @property
@@ -331,7 +331,7 @@ def DocStringObj.value(self, value):
 > <br />
 > @Property<br />
 > <br />
-#### <a id="-docstringobjinitself-value"></a> DocStringObj.__init__(self, value)
+#### DocStringObj.__init__(self, value)
 
 ```python
 def DocStringObj.__init__(self, value):
@@ -340,7 +340,7 @@ def DocStringObj.__init__(self, value):
 > <br />
 > Store the docstring<br />
 > <br />
-#### <a id="-docstringobjreprself"></a> DocStringObj.__repr__(self)
+#### DocStringObj.__repr__(self)
 
 ```python
 @ConvMD.repl_beg_end(Tag.beg_str, Tag.end_str, Tag.quote, Tag.html_cr)
@@ -353,7 +353,7 @@ def DocStringObj.__repr__(self):
 > <br />
 > Provide the new docstring with MD tags.<br />
 > <br />
-#### <a id="-docstringobjstrself"></a> DocStringObj.__str__(self)
+#### DocStringObj.__str__(self)
 
 ```python
 def DocStringObj.__str__(self):
@@ -362,7 +362,7 @@ def DocStringObj.__str__(self):
 > <br />
 > Call repr<br />
 > <br />
-### <a id="-extractpythonmodule"></a> ExtractPythonModule()
+### ExtractPythonModule()
 
 ```python
 class ExtractPythonModule(object):
@@ -371,7 +371,7 @@ class ExtractPythonModule(object):
 > <br />
 > Object in order to extract Python functions, classes....<br />
 > <br />
-#### <a id="-extractpythonmodule__check_modulefunc"></a> ExtractPythonModule.__check_module(func)
+#### ExtractPythonModule.__check_module(func)
 
 ```python
 def ExtractPythonModule.__check_module(func):
@@ -387,7 +387,7 @@ def ExtractPythonModule.__check_module(func):
 > <b>Retuns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bool: The return value. True for success, False otherwise.<br />
 > <br />
-#### <a id="-extractpythonmodule__extractself-my_pythonobj-inspectmembers-level0-decoratornone"></a> ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)
+#### ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)
 
 ```python
 def ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None):
@@ -404,7 +404,7 @@ def ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, d
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
 > <br />
-#### <a id="-extractpythonmodule__extractdecoratorself-member"></a> ExtractPythonModule.__extractdecorator(self, member)
+#### ExtractPythonModule.__extractdecorator(self, member)
 
 ```python
 def ExtractPythonModule.__extractdecorator(self, member):
@@ -413,7 +413,7 @@ def ExtractPythonModule.__extractdecorator(self, member):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-extractpythonmodule__extractpropertiesself-my_pythonobj-inspectmembers-level-decorator-cls_name"></a> ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)
+#### ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)
 
 ```python
 def ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name):
@@ -422,7 +422,7 @@ def ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, 
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-extractpythonmodule__findinlineself-line-search_item"></a> ExtractPythonModule.__findinline(self, line, search_item)
+#### ExtractPythonModule.__findinline(self, line, search_item)
 
 ```python
 def ExtractPythonModule.__findinline(self, line, search_item):
@@ -431,7 +431,7 @@ def ExtractPythonModule.__findinline(self, line, search_item):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-extractpythonmoduleinitself-module_name"></a> ExtractPythonModule.__init__(self, module_name)
+#### ExtractPythonModule.__init__(self, module_name)
 
 ```python
 def ExtractPythonModule.__init__(self, module_name):
@@ -440,7 +440,7 @@ def ExtractPythonModule.__init__(self, module_name):
 > <br />
 > Init<br />
 > <br />
-#### <a id="-extractpythonmodule__linetypeself-line"></a> ExtractPythonModule.__linetype(self, line)
+#### ExtractPythonModule.__linetype(self, line)
 
 ```python
 def ExtractPythonModule.__linetype(self, line):
@@ -449,7 +449,7 @@ def ExtractPythonModule.__linetype(self, line):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-extractpythonmoduleextractself"></a> ExtractPythonModule.extract(self)
+#### ExtractPythonModule.extract(self)
 
 ```python
 def ExtractPythonModule.extract(self):
@@ -464,7 +464,7 @@ def ExtractPythonModule.extract(self):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
 > <br />
-#### <a id="-extractpythonmoduleimport_moduleself"></a> ExtractPythonModule.import_module(self)
+#### ExtractPythonModule.import_module(self)
 
 ```python
 @__check_module
@@ -482,7 +482,7 @@ def ExtractPythonModule.import_module(self):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bool: The return value. True for success, False otherwise.<br />
 > <br />
-### <a id="-linetype"></a> LineType()
+### LineType()
 
 ```python
 class LineType:
@@ -491,7 +491,7 @@ class LineType:
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-membersobj"></a> MembersObj()
+### MembersObj()
 
 ```python
 class MembersObj(object):
@@ -501,7 +501,7 @@ class MembersObj(object):
 > Dict() to store a python object's members.<br />
 > This object will become an attribute.<br />
 > <br />
-#### <a id="-membersobjgetitemself-index"></a> MembersObj.__getitem__(self, index)
+#### MembersObj.__getitem__(self, index)
 
 ```python
 def MembersObj.__getitem__(self, index):
@@ -510,7 +510,7 @@ def MembersObj.__getitem__(self, index):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-membersobjinitself"></a> MembersObj.__init__(self)
+#### MembersObj.__init__(self)
 
 ```python
 def MembersObj.__init__(self):
@@ -519,7 +519,7 @@ def MembersObj.__init__(self):
 > <br />
 > Initialize self.  See help(type(self)) for accurate signature.<br />
 > <br />
-#### <a id="-membersobjlenself"></a> MembersObj.__len__(self)
+#### MembersObj.__len__(self)
 
 ```python
 def MembersObj.__len__(self):
@@ -528,7 +528,7 @@ def MembersObj.__len__(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-membersobjreprself"></a> MembersObj.__repr__(self)
+#### MembersObj.__repr__(self)
 
 ```python
 def MembersObj.__repr__(self):
@@ -537,7 +537,7 @@ def MembersObj.__repr__(self):
 > <br />
 > Return repr(self).<br />
 > <br />
-#### <a id="-membersobjsetitemself-index-value"></a> MembersObj.__setitem__(self, index, value)
+#### MembersObj.__setitem__(self, index, value)
 
 ```python
 def MembersObj.__setitem__(self, index, value):
@@ -546,7 +546,7 @@ def MembersObj.__setitem__(self, index, value):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-membersobjstrself"></a> MembersObj.__str__(self)
+#### MembersObj.__str__(self)
 
 ```python
 def MembersObj.__str__(self):
@@ -555,7 +555,7 @@ def MembersObj.__str__(self):
 > <br />
 > Return str(self).<br />
 > <br />
-#### <a id="-membersobjitemsself"></a> MembersObj.items(self)
+#### MembersObj.items(self)
 
 ```python
 def MembersObj.items(self):
@@ -564,7 +564,7 @@ def MembersObj.items(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-membersobjsortkeysself"></a> MembersObj.sortkeys(self)
+#### MembersObj.sortkeys(self)
 
 ```python
 def MembersObj.sortkeys(self):
@@ -573,7 +573,7 @@ def MembersObj.sortkeys(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-moduleobj"></a> ModuleObj()
+### ModuleObj()
 
 ```python
 class ModuleObj(PythonObj):
@@ -583,7 +583,7 @@ class ModuleObj(PythonObj):
 > Class in order to register module informations<br />
 > __str__ is used to export with MD format.<br />
 > <br />
-#### <a id="-moduleobjinitself-name-full_name-docstring-level0"></a> ModuleObj.__init__(self, name, full_name, docstring, level=0)
+#### ModuleObj.__init__(self, name, full_name, docstring, level=0)
 
 ```python
 def ModuleObj.__init__(self, name, full_name, docstring, level=0):
@@ -592,7 +592,7 @@ def ModuleObj.__init__(self, name, full_name, docstring, level=0):
 > <br />
 > Initialize self.  See help(type(self)) for accurate signature.<br />
 > <br />
-#### <a id="-moduleobjreprself"></a> ModuleObj.__repr__(self)
+#### ModuleObj.__repr__(self)
 
 ```python
 def ModuleObj.__repr__(self):
@@ -601,7 +601,7 @@ def ModuleObj.__repr__(self):
 > <br />
 > Return repr(self).<br />
 > <br />
-#### <a id="-moduleobjstrself"></a> ModuleObj.__str__(self)
+#### ModuleObj.__str__(self)
 
 ```python
 def ModuleObj.__str__(self):
@@ -610,7 +610,7 @@ def ModuleObj.__str__(self):
 > <br />
 > Return str(self).<br />
 > <br />
-#### <a id="-moduleobjgetallstrself-membernone"></a> ModuleObj.getallstr(self, member=None)
+#### ModuleObj.getallstr(self, member=None)
 
 ```python
 def ModuleObj.getallstr(self, member=None):
@@ -619,7 +619,7 @@ def ModuleObj.getallstr(self, member=None):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-moduleobjgettocself-membernone"></a> ModuleObj.gettoc(self, member=None)
+#### ModuleObj.gettoc(self, member=None)
 
 ```python
 def ModuleObj.gettoc(self, member=None):
@@ -628,7 +628,7 @@ def ModuleObj.gettoc(self, member=None):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-pythonobjgetlinkself"></a> PythonObj.getlink(self)
+#### PythonObj.getlink(self)
 
 ```python
 def PythonObj.getlink(self):
@@ -637,7 +637,7 @@ def PythonObj.getlink(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-myconst"></a> MyConst()
+### MyConst()
 
 ```python
 class MyConst:
@@ -646,7 +646,7 @@ class MyConst:
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-pythondefinitionobj"></a> PythonDefinitionObj()
+### PythonDefinitionObj()
 
 ```python
 class PythonDefinitionObj(object):
@@ -657,7 +657,7 @@ class PythonDefinitionObj(object):
 > Example : def function_name(*args)<br />
 > This object will become an attribute.<br />
 > <br />
-#### <a id="-property-pythondefinitionobjvalue"></a> @Property: PythonDefinitionObj.value
+#### @Property: PythonDefinitionObj.value
 
 ```python
 @property
@@ -670,7 +670,7 @@ def PythonDefinitionObj.value(self, value):
 > <br />
 > @Property<br />
 > <br />
-#### <a id="-pythondefinitionobjinitself-value"></a> PythonDefinitionObj.__init__(self, value)
+#### PythonDefinitionObj.__init__(self, value)
 
 ```python
 def PythonDefinitionObj.__init__(self, value):
@@ -679,7 +679,7 @@ def PythonDefinitionObj.__init__(self, value):
 > <br />
 > Initialize self.  See help(type(self)) for accurate signature.<br />
 > <br />
-#### <a id="-pythondefinitionobjreprself"></a> PythonDefinitionObj.__repr__(self)
+#### PythonDefinitionObj.__repr__(self)
 
 ```python
 @ConvMD.add_tag(Tag.beg_py, Tag.end_py)
@@ -689,7 +689,7 @@ def PythonDefinitionObj.__repr__(self):
 > <br />
 > Provide the definition string with MD tags.<br />
 > <br />
-#### <a id="-pythondefinitionobjstrself"></a> PythonDefinitionObj.__str__(self)
+#### PythonDefinitionObj.__str__(self)
 
 ```python
 def PythonDefinitionObj.__str__(self):
@@ -698,7 +698,7 @@ def PythonDefinitionObj.__str__(self):
 > <br />
 > Call repr<br />
 > <br />
-### <a id="-pythonobj"></a> PythonObj()
+### PythonObj()
 
 ```python
 class PythonObj(object):
@@ -708,7 +708,7 @@ class PythonObj(object):
 > Class in order to register object informations<br />
 > __str__ is used to export with MD format.<br />
 > <br />
-#### <a id="-pythonobjinitself-name-full_name-docstring-level"></a> PythonObj.__init__(self, name, full_name, docstring, level)
+#### PythonObj.__init__(self, name, full_name, docstring, level)
 
 ```python
 def PythonObj.__init__(self, name, full_name, docstring, level):
@@ -717,7 +717,7 @@ def PythonObj.__init__(self, name, full_name, docstring, level):
 > <br />
 > Initialize self.  See help(type(self)) for accurate signature.<br />
 > <br />
-#### <a id="-pythonobjreprself"></a> PythonObj.__repr__(self)
+#### PythonObj.__repr__(self)
 
 ```python
 def PythonObj.__repr__(self):
@@ -726,7 +726,7 @@ def PythonObj.__repr__(self):
 > <br />
 > Return repr(self).<br />
 > <br />
-#### <a id="-pythonobjstrself"></a> PythonObj.__str__(self)
+#### PythonObj.__str__(self)
 
 ```python
 def PythonObj.__str__(self):
@@ -735,7 +735,7 @@ def PythonObj.__str__(self):
 > <br />
 > Return str(self).<br />
 > <br />
-#### <a id="-pythonobjgetlinkself"></a> PythonObj.getlink(self)
+#### PythonObj.getlink(self)
 
 ```python
 def PythonObj.getlink(self):
@@ -744,7 +744,7 @@ def PythonObj.getlink(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-readfile"></a> ReadFile()
+### ReadFile()
 
 ```python
 class ReadFile(object):
@@ -753,7 +753,7 @@ class ReadFile(object):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-#### <a id="-property-readfilefilename"></a> @Property: ReadFile.filename
+#### @Property: ReadFile.filename
 
 ```python
 @property
@@ -766,7 +766,7 @@ def ReadFile.filename(self, filename):
 > <br />
 > @Property<br />
 > <br />
-#### <a id="-readfileinitself-filename"></a> ReadFile.__init__(self, filename)
+#### ReadFile.__init__(self, filename)
 
 ```python
 def ReadFile.__init__(self, filename):
@@ -775,7 +775,7 @@ def ReadFile.__init__(self, filename):
 > <br />
 > Initialize self.  See help(type(self)) for accurate signature.<br />
 > <br />
-#### <a id="-readfilereprself"></a> ReadFile.__repr__(self)
+#### ReadFile.__repr__(self)
 
 ```python
 def ReadFile.__repr__(self):
@@ -784,7 +784,7 @@ def ReadFile.__repr__(self):
 > <br />
 > Return repr(self).<br />
 > <br />
-#### <a id="-readfilestrself"></a> ReadFile.__str__(self)
+#### ReadFile.__str__(self)
 
 ```python
 def ReadFile.__str__(self):
@@ -793,7 +793,7 @@ def ReadFile.__str__(self):
 > <br />
 > Return str(self).<br />
 > <br />
-#### <a id="-readfilegetself"></a> ReadFile.get(self)
+#### ReadFile.get(self)
 
 ```python
 def ReadFile.get(self):
@@ -803,7 +803,7 @@ def ReadFile.get(self):
 > open & read the file<br />
 > Returns the content<br />
 > <br />
-#### <a id="-readfileisdefinedself"></a> ReadFile.isdefined(self)
+#### ReadFile.isdefined(self)
 
 ```python
 def ReadFile.isdefined(self):
@@ -812,7 +812,7 @@ def ReadFile.isdefined(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-tag"></a> Tag()
+### Tag()
 
 ```python
 class Tag:
@@ -821,7 +821,7 @@ class Tag:
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-titleobj"></a> TitleObj()
+### TitleObj()
 
 ```python
 class TitleObj(object):
@@ -831,7 +831,7 @@ class TitleObj(object):
 > String to store and prepare MD title<br />
 > This object will become an attribute.<br />
 > <br />
-#### <a id="-property-titleobjlevel"></a> @Property: TitleObj.level
+#### @Property: TitleObj.level
 
 ```python
 @property
@@ -844,7 +844,7 @@ def TitleObj.level(self, level):
 > <br />
 > @Property<br />
 > <br />
-#### <a id="-property-titleobjtitle"></a> @Property: TitleObj.title
+#### @Property: TitleObj.title
 
 ```python
 @property
@@ -857,7 +857,7 @@ def TitleObj.title(self, title):
 > <br />
 > @Property<br />
 > <br />
-#### <a id="-titleobjinitself-title-level"></a> TitleObj.__init__(self, title, level)
+#### TitleObj.__init__(self, title, level)
 
 ```python
 def TitleObj.__init__(self, title, level):
@@ -866,7 +866,7 @@ def TitleObj.__init__(self, title, level):
 > <br />
 > Init => store the sting in value and level (H1/H2/H3/...)<br />
 > <br />
-#### <a id="-titleobjreprself"></a> TitleObj.__repr__(self)
+#### TitleObj.__repr__(self)
 
 ```python
 def TitleObj.__repr__(self):
@@ -875,7 +875,7 @@ def TitleObj.__repr__(self):
 > <br />
 > Provide the MD string according to the level<br />
 > <br />
-#### <a id="-titleobjstrself"></a> TitleObj.__str__(self)
+#### TitleObj.__str__(self)
 
 ```python
 def TitleObj.__str__(self):
@@ -884,7 +884,7 @@ def TitleObj.__str__(self):
 > <br />
 > Return str(self).<br />
 > <br />
-#### <a id="-titleobjgetanchorself"></a> TitleObj.getanchor(self)
+#### TitleObj.getanchor(self)
 
 ```python
 def TitleObj.getanchor(self):
@@ -893,7 +893,7 @@ def TitleObj.getanchor(self):
 > <br />
 > <b>- docstring empty -</b><br />
 > <br />
-### <a id="-wrapswrapped-assigned__module__-__name__-__qualname__-__doc__-__annotations__-updated__dict__"></a> wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))
+### wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))
 
 ```python
 def wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',)):
@@ -908,4 +908,4 @@ def wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__'
 > This is a convenience function to simplify applying partial() to<br />
 > update_wrapper().<br />
 > <br />
---- 0.061181068420410156 seconds ---
+--- 0.05991482734680176 seconds ---
