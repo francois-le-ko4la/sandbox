@@ -87,75 +87,75 @@ This script is provided in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ## Dev notes
-[ConvMD()](#-convmd)<br />
-[ConvMD.add_tag(begin_tag, end_tag)](#-convmdadd_tagbegin_tag-end_tag)<br />
-[ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)](#-convmdrepl_beg_endbegin_regexp-end_regexp-begin_tag-end_tag)<br />
-[ConvMD.repl_str(old_string, new_string)](#-convmdrepl_strold_string-new_string)<br />
-[DocString2MD()](#-docstring2md)<br />
-[@Property: DocString2MD.module_name](#-property-docstring2mdmodule_name)<br />
-[DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)](#-docstring2mdinitself-module_name-export_filenone-runtime_filenone-requirements_filenone-uml_filenone)<br />
-[DocString2MD.__writedoc(self)](#-docstring2md__writedocself)<br />
-[DocString2MD.get_doc(self)](#-docstring2mdget_docself)<br />
-[DocString2MD.import_module(self)](#-docstring2mdimport_moduleself)<br />
-[DocStringObj()](#-docstringobj)<br />
-[@Property: DocStringObj.value](#-property-docstringobjvalue)<br />
-[DocStringObj.__init__(self, value)](#-docstringobjinitself-value)<br />
-[DocStringObj.__repr__(self)](#-docstringobjreprself)<br />
-[DocStringObj.__str__(self)](#-docstringobjstrself)<br />
-[ExtractPythonModule()](#-extractpythonmodule)<br />
-[ExtractPythonModule.__check_module(func)](#-extractpythonmodule__check_modulefunc)<br />
-[ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)](#-extractpythonmodule__extractself-my_pythonobj-inspectmembers-level0-decoratornone)<br />
-[ExtractPythonModule.__extractdecorator(self, member)](#-extractpythonmodule__extractdecoratorself-member)<br />
-[ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)](#-extractpythonmodule__extractpropertiesself-my_pythonobj-inspectmembers-level-decorator-cls_name)<br />
-[ExtractPythonModule.__findinline(self, line, search_item)](#-extractpythonmodule__findinlineself-line-search_item)<br />
-[ExtractPythonModule.__init__(self, module_name)](#-extractpythonmoduleinitself-module_name)<br />
-[ExtractPythonModule.__linetype(self, line)](#-extractpythonmodule__linetypeself-line)<br />
-[ExtractPythonModule.extract(self)](#-extractpythonmoduleextractself)<br />
-[ExtractPythonModule.import_module(self)](#-extractpythonmoduleimport_moduleself)<br />
-[LineType()](#-linetype)<br />
-[MembersObj()](#-membersobj)<br />
-[MembersObj.__getitem__(self, index)](#-membersobjgetitemself-index)<br />
-[MembersObj.__init__(self)](#-membersobjinitself)<br />
-[MembersObj.__len__(self)](#-membersobjlenself)<br />
-[MembersObj.__repr__(self)](#-membersobjreprself)<br />
-[MembersObj.__setitem__(self, index, value)](#-membersobjsetitemself-index-value)<br />
-[MembersObj.__str__(self)](#-membersobjstrself)<br />
-[MembersObj.items(self)](#-membersobjitemsself)<br />
-[MembersObj.sortkeys(self)](#-membersobjsortkeysself)<br />
-[ModuleObj()](#-moduleobj)<br />
-[ModuleObj.__init__(self, name, full_name, docstring, level=0)](#-moduleobjinitself-name-full_name-docstring-level0)<br />
-[ModuleObj.__repr__(self)](#-moduleobjreprself)<br />
-[ModuleObj.__str__(self)](#-moduleobjstrself)<br />
-[ModuleObj.getallstr(self, member=None)](#-moduleobjgetallstrself-membernone)<br />
-[ModuleObj.gettoc(self, member=None)](#-moduleobjgettocself-membernone)<br />
-[PythonObj.getlink(self)](#-pythonobjgetlinkself)<br />
-[MyConst()](#-myconst)<br />
-[PythonDefinitionObj()](#-pythondefinitionobj)<br />
-[@Property: PythonDefinitionObj.value](#-property-pythondefinitionobjvalue)<br />
-[PythonDefinitionObj.__init__(self, value)](#-pythondefinitionobjinitself-value)<br />
-[PythonDefinitionObj.__repr__(self)](#-pythondefinitionobjreprself)<br />
-[PythonDefinitionObj.__str__(self)](#-pythondefinitionobjstrself)<br />
-[PythonObj()](#-pythonobj)<br />
-[PythonObj.__init__(self, name, full_name, docstring, level)](#-pythonobjinitself-name-full_name-docstring-level)<br />
-[PythonObj.__repr__(self)](#-pythonobjreprself)<br />
-[PythonObj.__str__(self)](#-pythonobjstrself)<br />
-[PythonObj.getlink(self)](#-pythonobjgetlinkself)<br />
-[ReadFile()](#-readfile)<br />
-[@Property: ReadFile.filename](#-property-readfilefilename)<br />
-[ReadFile.__init__(self, filename)](#-readfileinitself-filename)<br />
-[ReadFile.__repr__(self)](#-readfilereprself)<br />
-[ReadFile.__str__(self)](#-readfilestrself)<br />
-[ReadFile.get(self)](#-readfilegetself)<br />
-[ReadFile.isdefined(self)](#-readfileisdefinedself)<br />
-[Tag()](#-tag)<br />
-[TitleObj()](#-titleobj)<br />
-[@Property: TitleObj.level](#-property-titleobjlevel)<br />
-[@Property: TitleObj.title](#-property-titleobjtitle)<br />
-[TitleObj.__init__(self, title, level)](#-titleobjinitself-title-level)<br />
-[TitleObj.__repr__(self)](#-titleobjreprself)<br />
-[TitleObj.__str__(self)](#-titleobjstrself)<br />
-[TitleObj.getanchor(self)](#-titleobjgetanchorself)<br />
-[wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))](#-wrapswrapped-assigned__module__-__name__-__qualname__-__doc__-__annotations__-updated__dict__)<br />
+[ConvMD()](#convmd)<br />
+[ConvMD.add_tag(begin_tag, end_tag)](#convmdadd_tagbegin_tag-end_tag)<br />
+[ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)](#convmdrepl_beg_endbegin_regexp-end_regexp-begin_tag-end_tag)<br />
+[ConvMD.repl_str(old_string, new_string)](#convmdrepl_strold_string-new_string)<br />
+[DocString2MD()](#docstring2md)<br />
+[@Property: DocString2MD.module_name](#property-docstring2mdmodule_name)<br />
+[DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)](#docstring2mdinitself-module_name-export_filenone-runtime_filenone-requirements_filenone-uml_filenone)<br />
+[DocString2MD.__writedoc(self)](#docstring2md__writedocself)<br />
+[DocString2MD.get_doc(self)](#docstring2mdget_docself)<br />
+[DocString2MD.import_module(self)](#docstring2mdimport_moduleself)<br />
+[DocStringObj()](#docstringobj)<br />
+[@Property: DocStringObj.value](#property-docstringobjvalue)<br />
+[DocStringObj.__init__(self, value)](#docstringobjinitself-value)<br />
+[DocStringObj.__repr__(self)](#docstringobjreprself)<br />
+[DocStringObj.__str__(self)](#docstringobjstrself)<br />
+[ExtractPythonModule()](#extractpythonmodule)<br />
+[ExtractPythonModule.__check_module(func)](#extractpythonmodule__check_modulefunc)<br />
+[ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)](#extractpythonmodule__extractself-my_pythonobj-inspectmembers-level0-decoratornone)<br />
+[ExtractPythonModule.__extractdecorator(self, member)](#extractpythonmodule__extractdecoratorself-member)<br />
+[ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)](#extractpythonmodule__extractpropertiesself-my_pythonobj-inspectmembers-level-decorator-cls_name)<br />
+[ExtractPythonModule.__findinline(self, line, search_item)](#extractpythonmodule__findinlineself-line-search_item)<br />
+[ExtractPythonModule.__init__(self, module_name)](#extractpythonmoduleinitself-module_name)<br />
+[ExtractPythonModule.__linetype(self, line)](#extractpythonmodule__linetypeself-line)<br />
+[ExtractPythonModule.extract(self)](#extractpythonmoduleextractself)<br />
+[ExtractPythonModule.import_module(self)](#extractpythonmoduleimport_moduleself)<br />
+[LineType()](#linetype)<br />
+[MembersObj()](#membersobj)<br />
+[MembersObj.__getitem__(self, index)](#membersobjgetitemself-index)<br />
+[MembersObj.__init__(self)](#membersobjinitself)<br />
+[MembersObj.__len__(self)](#membersobjlenself)<br />
+[MembersObj.__repr__(self)](#membersobjreprself)<br />
+[MembersObj.__setitem__(self, index, value)](#membersobjsetitemself-index-value)<br />
+[MembersObj.__str__(self)](#membersobjstrself)<br />
+[MembersObj.items(self)](#membersobjitemsself)<br />
+[MembersObj.sortkeys(self)](#membersobjsortkeysself)<br />
+[ModuleObj()](#moduleobj)<br />
+[ModuleObj.__init__(self, name, full_name, docstring, level=0)](#moduleobjinitself-name-full_name-docstring-level0)<br />
+[ModuleObj.__repr__(self)](#moduleobjreprself)<br />
+[ModuleObj.__str__(self)](#moduleobjstrself)<br />
+[ModuleObj.getallstr(self, member=None)](#moduleobjgetallstrself-membernone)<br />
+[ModuleObj.gettoc(self, member=None)](#moduleobjgettocself-membernone)<br />
+[PythonObj.getlink(self)](#pythonobjgetlinkself)<br />
+[MyConst()](#myconst)<br />
+[PythonDefinitionObj()](#pythondefinitionobj)<br />
+[@Property: PythonDefinitionObj.value](#property-pythondefinitionobjvalue)<br />
+[PythonDefinitionObj.__init__(self, value)](#pythondefinitionobjinitself-value)<br />
+[PythonDefinitionObj.__repr__(self)](#pythondefinitionobjreprself)<br />
+[PythonDefinitionObj.__str__(self)](#pythondefinitionobjstrself)<br />
+[PythonObj()](#pythonobj)<br />
+[PythonObj.__init__(self, name, full_name, docstring, level)](#pythonobjinitself-name-full_name-docstring-level)<br />
+[PythonObj.__repr__(self)](#pythonobjreprself)<br />
+[PythonObj.__str__(self)](#pythonobjstrself)<br />
+[PythonObj.getlink(self)](#pythonobjgetlinkself)<br />
+[ReadFile()](#readfile)<br />
+[@Property: ReadFile.filename](#property-readfilefilename)<br />
+[ReadFile.__init__(self, filename)](#readfileinitself-filename)<br />
+[ReadFile.__repr__(self)](#readfilereprself)<br />
+[ReadFile.__str__(self)](#readfilestrself)<br />
+[ReadFile.get(self)](#readfilegetself)<br />
+[ReadFile.isdefined(self)](#readfileisdefinedself)<br />
+[Tag()](#tag)<br />
+[TitleObj()](#titleobj)<br />
+[@Property: TitleObj.level](#property-titleobjlevel)<br />
+[@Property: TitleObj.title](#property-titleobjtitle)<br />
+[TitleObj.__init__(self, title, level)](#titleobjinitself-title-level)<br />
+[TitleObj.__repr__(self)](#titleobjreprself)<br />
+[TitleObj.__str__(self)](#titleobjstrself)<br />
+[TitleObj.getanchor(self)](#titleobjgetanchorself)<br />
+[wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))](#wrapswrapped-assigned__module__-__name__-__qualname__-__doc__-__annotations__-updated__dict__)<br />
 
 ### ConvMD()
 
@@ -908,4 +908,4 @@ def wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__'
 > This is a convenience function to simplify applying partial() to<br />
 > update_wrapper().<br />
 > <br />
---- 0.05991482734680176 seconds ---
+--- 0.06122422218322754 seconds ---
