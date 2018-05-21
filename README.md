@@ -108,7 +108,8 @@ Enjoy...
 
 ## License
 
-This package is distributed under the [GPLv3 license](./LICENSE)### Runtime
+This package is distributed under the [GPLv3 license](./LICENSE)
+### Runtime
 
 ```
 python-3.6.x
@@ -137,13 +138,10 @@ pycodestyle>=2.3.1
 [ConvMD()](#convmd)<br />
 [ConvMD.repl_str()](#convmdrepl_str)<br />
 [ConvMD.repl_str.tags_decorator()](#convmdrepl_strtags_decorator)<br />
-[ConvMD.repl_str.tags_decorator.func_wrapper()](#convmdrepl_strtags_decoratorfunc_wrapper)<br />
 [ConvMD.repl_beg_end()](#convmdrepl_beg_end)<br />
 [ConvMD.repl_beg_end.tags_decorator()](#convmdrepl_beg_endtags_decorator)<br />
-[ConvMD.repl_beg_end.tags_decorator.func_wrapper()](#convmdrepl_beg_endtags_decoratorfunc_wrapper)<br />
 [ConvMD.add_tag()](#convmdadd_tag)<br />
 [ConvMD.add_tag.tags_decorator()](#convmdadd_tagtags_decorator)<br />
-[ConvMD.add_tag.tags_decorator.func_wrapper()](#convmdadd_tagtags_decoratorfunc_wrapper)<br />
 [DocString2MD()](#docstring2md)<br />
 [DocString2MD.import_module()](#docstring2mdimport_module)<br />
 [DocString2MD.get_doc()](#docstring2mdget_doc)<br />
@@ -163,7 +161,7 @@ pycodestyle>=2.3.1
 
 #### MyConst()
 ```python
-classe MyConst():
+class MyConst():
 ```
 
 ```
@@ -172,7 +170,7 @@ params
 
 #### LineType()
 ```python
-classe LineType():
+class LineType():
 ```
 
 ```
@@ -181,7 +179,7 @@ params
 
 #### PythonObjType()
 ```python
-classe PythonObjType():
+class PythonObjType():
 ```
 
 ```
@@ -190,7 +188,7 @@ params
 
 #### Tag()
 ```python
-classe Tag():
+class Tag():
 ```
 
 ```
@@ -199,7 +197,7 @@ params
 
 #### ObjVisitor()
 ```python
-classe ObjVisitor():
+class ObjVisitor():
 ```
 
 ```
@@ -240,7 +238,7 @@ def ObjVisitor.visit_FunctionDef(self, node):
 > <br />
 #### ConvMD()
 ```python
-classe ConvMD(object):
+class ConvMD(object):
 ```
 
 ```
@@ -271,14 +269,6 @@ def ConvMD.repl_str.tags_decorator(func):
 > <br />
 > decorator <br />
 > <br />
-####### ConvMD.repl_str.tags_decorator.func_wrapper()
-```python
-@wraps(func)
-def ConvMD.repl_str.tags_decorator.func_wrapper(*args, **kwargs):
-```
-> <br />
-> wrapper <br />
-> <br />
 ##### ConvMD.repl_beg_end()
 ```python
 
@@ -308,14 +298,6 @@ def ConvMD.repl_beg_end.tags_decorator(func):
 > <br />
 > decorator <br />
 > <br />
-####### ConvMD.repl_beg_end.tags_decorator.func_wrapper()
-```python
-@wraps(func)
-def ConvMD.repl_beg_end.tags_decorator.func_wrapper(*args, **kwargs):
-```
-> <br />
-> wrapper <br />
-> <br />
 ##### ConvMD.add_tag()
 ```python
 
@@ -342,17 +324,9 @@ def ConvMD.add_tag.tags_decorator(func):
 > <br />
 > decorator <br />
 > <br />
-####### ConvMD.add_tag.tags_decorator.func_wrapper()
-```python
-@wraps(func)
-def ConvMD.add_tag.tags_decorator.func_wrapper(self, *args):
-```
-> <br />
-> wrapper <br />
-> <br />
 #### DocString2MD()
 ```python
-classe DocString2MD(object):
+class DocString2MD(object):
 ```
 
 ```
@@ -393,7 +367,7 @@ def DocString2MD.get_doc(self):
 > <br />
 #### PytFile()
 ```python
-classe PytFile(object):
+class PytFile(object):
 ```
 
 ```
@@ -462,7 +436,7 @@ def run():
 > <br />
 #### ExtractPythonModule()
 ```python
-classe ExtractPythonModule(object):
+class ExtractPythonModule(object):
 ```
 
 ```
