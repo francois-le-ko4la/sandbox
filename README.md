@@ -3,33 +3,18 @@
 
 This package Export Google DocString to Markdown from Python module.
 
-The following files comprise the `docstring2md` package:
-* `LICENSE`: The license file. `docstring2md` is released under the terms of
-the GNU General Public License (GPL), version 3.
-* `README.md`: This readme file.
-* `Makefile`: Generic management tasks.
-* `setup.py`: Package and distribution management.
-* `setup.cfg`: The setuptools setup file.
-
-The package contents itself are in the `docstring2md` directory:
-* `__init__.py` Initialization file for the Python package.
-* `docstring2md/docstring2md.py`: The code of interest.
-
-The script is in the `bin` directory:
-* `export_docstring2md.py`: The script to run
-
 ## Setup:
 ```shell
-git clone https://github.com/francois-le-ko4la/docstring2md.git
-cd config-from-json
-make install
+$ git clone https://github.com/francois-le-ko4la/docstring-to-markdown.git
+$ cd docstring-to-markdown
+$ make install
 ```
 
 ## Test:
 
-This module has been tested and validated on Ubuntu.
+This module has been tested and validated on Ubuntu 17.10/18.04.
 ```shell
-make test
+$ make test
 ```
 
 ## Use:
@@ -37,11 +22,18 @@ make test
 Use the script:
 ```shell
 $ export_docstring2md.py -h
-usage: export_docstring2md.py [-h] [-v] -i INPUT [-o FILE] [-t FILE] [-r FILE]
+usage: main.py [-h] [-v] -i INPUT [-o FILE] [-t FILE] [-r FILE] [-uml FILE]
+               [--toc | --no-toc] [--private-def | --no-private-def]
 
 This script is provided by docstring2md package.
 It exports google docstrings from python module to a Markdown file in order to
 generate README.
+
+optional arguments:
+  --toc                 Enable the table of contents (DEFAULT)
+  --no-toc              Disable the table of contents
+  --private-def         Show private objects
+  --no-private-def      Don't show private objects
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -58,8 +50,44 @@ optional arguments:
                         Runtime file
   -r FILE, --requirements FILE
                         requirements.txt file
+  -uml FILE, --uml-diagramm FILE
+                        UML file (PNG)
 
 Enjoy...
+```
+
+## Project structure
+
+```
+.
+├── bin
+│   └── export_docstring2md.py
+├── docstring2md
+│   ├── __about__.py
+│   ├── __config__.py
+│   ├── convmd.py
+│   ├── doc2md.py
+│   ├── file.py
+│   ├── __init__.py
+│   ├── main.py
+│   ├── module.py
+│   └── objdef.py
+├── last_check.log
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── pictures
+│   ├── classes_docstring2md.png
+│   └── packages_docstring2md.png
+├── README.md
+├── requirements.txt
+├── runtime.txt
+├── setup.cfg
+├── setup.py
+└── tests
+    ├── test_docstring2md.py
+    ├── test_doctest.py
+    └── test_pycodestyle.py
 ```
 
 ## Todo:
@@ -72,125 +100,190 @@ Enjoy...
 - [X] Add-on : decorator
 - [X] Add-on : class properties
 - [X] Add-on : runtime & requirements
-- [ ] Write Doc/stringdoc
+- [X] Add-on : toc
+- [X] Write Doc/stringdoc
 - [X] Run PEP8 validation
-- [ ] Clean & last check
-- [ ] Release
+- [X] Clean & last check
+- [X] Release
 
-## Note:
-This script is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 3 of the License, or (at your option) any later version.
+## License
 
-This script is provided in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-## Dev notes
-[ConvMD()](#92dd76e2526bcd318d24dd06abc492ddd9aa060a)<br />
-[ConvMD.add_tag(begin_tag, end_tag)](#a340e0fb29090ceda39c781d0287b409a6d506b2)<br />
-[ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)](#dd0d60e32851a831bb2a9357ccf94a0aa0775ac9)<br />
-[ConvMD.repl_str(old_string, new_string)](#93e1829c90b94cb63174a733726fc9158da243b1)<br />
-[DocString2MD()](#1a1bc9270ef9889e3e1ff955ad391cd75f9ceb3e)<br />
-[@Property: module_name](#efca858446dedd94f56d684293129b4b92e514db)<br />
-[DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)](#49efdc7fb225b82ba060ca1b356aad67e5a0c1e2)<br />
-[DocString2MD.__writedoc(self)](#4ecf66e6c1632fbe76c05e842b961fc9b7434836)<br />
-[DocString2MD.get_doc(self)](#8b167cfe759596ebe08fe184e4143d650b9948ea)<br />
-[DocString2MD.import_module(self)](#ab424550d18ae8bae0a1ce66f4d41e8ac19750a9)<br />
-[DocStringObj()](#8daf5988f2974abc7e6394d3c745d44ba43fd5c7)<br />
-[@Property: value](#6f76a1931dcc00e9d3c07f0346c22a49bb507bc8)<br />
-[DocStringObj.__init__(self, value)](#87af9694b9afa3eaf10e3cb6657f153ee4209b3c)<br />
-[DocStringObj.__repr__(self)](#ac39c86c895b381c7620540f1b29b571cd8d58e0)<br />
-[DocStringObj.__str__(self)](#b9282981f37b00239f3eff16d9da3412466c00ff)<br />
-[ExtractPythonModule()](#2498540c5ed9310facae548d4ba9cd71b162470d)<br />
-[ExtractPythonModule.__check_module(func)](#c215001384acf81c10359befa3395fa69ce35a55)<br />
-[ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)](#359967e59a746508900585f22f68bc1a99fa3f08)<br />
-[ExtractPythonModule.__extractdecorator(self, member)](#c50284af2411ebfdec40bcd172207e4b340f2023)<br />
-[ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)](#27b22c82207664254f720cc931426a77bf3b1bf5)<br />
-[ExtractPythonModule.__findinline(self, line, search_item)](#c5f653d758516a2dd23a12d8a4efef8324d9b062)<br />
-[ExtractPythonModule.__init__(self, module_name)](#aec9f32e063906787c5906d4fb3b7a3ad54d9dd0)<br />
-[ExtractPythonModule.__linetype(self, line)](#0305ba5a01d7af75a39a63a952e6532d836d0830)<br />
-[ExtractPythonModule.extract(self)](#a7312d4fccc4e5885ad9dbe26bda903340444366)<br />
-[ExtractPythonModule.import_module(self)](#08f40447cb4474fe9b892c10ad6b4c88ee0e341f)<br />
-[LineType()](#d65fbaed25ebe482588b51e3000c5d65f7f0b6a9)<br />
-[MembersObj()](#393a95ae46f991e26e9ef12082af0ceeec81c025)<br />
-[MembersObj.__getitem__(self, index)](#5bb035ab7a37d6fb4ac0d63feb7ae1f0a91947a8)<br />
-[MembersObj.__init__(self)](#f8edcec0fb8181a28713b55f08a59a4881bbb9a7)<br />
-[MembersObj.__len__(self)](#21079dc8d29c6d783d26b1d2426a62f5a1af0c0b)<br />
-[MembersObj.__repr__(self)](#8a055d95e4aac47645e9e5e966536ce1f1a7c3d5)<br />
-[MembersObj.__setitem__(self, index, value)](#bc654d0b0ccbd43dbc3e3ef5731d9dfd4ab4b98a)<br />
-[MembersObj.__str__(self)](#d1491d742bd8ce5f9f09df77cfc00f9809f51ba2)<br />
-[MembersObj.items(self)](#4bbbf05855d621ad0fcedef8da6c57ffd4a0396e)<br />
-[MembersObj.sortkeys(self)](#dd169b053302842c9d4e56e149472595afde1411)<br />
-[ModuleObj()](#ad7e199936a9f0900d22f9146d9c6122e07bad8f)<br />
-[ModuleObj.__init__(self, name, full_name, docstring, level=0)](#2d22ce06ca9358b7c3edffc10f0bdee205d1911c)<br />
-[ModuleObj.__repr__(self)](#8b175a86b227b43e4afc2c119f380c060ce264b3)<br />
-[ModuleObj.__str__(self)](#1c7845109b61b62b699dd9f1423f808d757410a8)<br />
-[ModuleObj.getallstr(self, member=None)](#7fbcc4146a8608bdfecd6c87e4a940598c913196)<br />
-[ModuleObj.gettoc(self, member=None)](#18e852be5041c36903e5fd149222a046dd707ff6)<br />
-[PythonObj.getlink(self)](#689ea8cf936d2e124206fa9cb72dc92c8c24595c)<br />
-[MyConst()](#e291187727c46a2a7059bc2ccf1382ddbbad7a35)<br />
-[PythonDefinitionObj()](#f8db111c5a1f08313ce3428f1d33236b5e45e5aa)<br />
-[@Property: value](#6f76a1931dcc00e9d3c07f0346c22a49bb507bc8)<br />
-[PythonDefinitionObj.__init__(self, value)](#f92b4947fd1e614b2dcab47aa233379b58ccdefe)<br />
-[PythonDefinitionObj.__repr__(self)](#bbf1d86197e458205810c7b3ee145de586016b66)<br />
-[PythonDefinitionObj.__str__(self)](#d178bfa378031ea38a69d09ccb07288e60c4796f)<br />
-[PythonObj()](#780f202252b8da2c8bc85f829e382aedbac554de)<br />
-[PythonObj.__init__(self, name, full_name, docstring, level)](#32fa5e8d0fc098c6b016d2b3f8456f79f9d19edd)<br />
-[PythonObj.__repr__(self)](#42878b1f331162ae5974baefb33db40a796468d9)<br />
-[PythonObj.__str__(self)](#d073303de05e300512174a05689ceeafb8aae5df)<br />
-[PythonObj.getlink(self)](#689ea8cf936d2e124206fa9cb72dc92c8c24595c)<br />
-[ReadFile()](#99b7f0b4d121c98a3c7fd7ceb688997305523603)<br />
-[@Property: filename](#4419219f9e4f4d1f83af7a9364d51e4c51a9cccf)<br />
-[ReadFile.__init__(self, filename)](#c8e5cccc0708cd0536dd47de06263f45c8e2ecb2)<br />
-[ReadFile.__repr__(self)](#32b969e1552a6e1cab80c5f07855d7400c34646c)<br />
-[ReadFile.__str__(self)](#8a8aa432137a04f8144a93d22b9c61b774a3a2e1)<br />
-[ReadFile.get(self)](#e5f2319ad83767af70e8fed672c4f7680b176f18)<br />
-[ReadFile.isdefined(self)](#55921ecc8e7838c202ccc204e430a0932d1edd66)<br />
-[Tag()](#fcd5f72200e4464c35485721a8a2b0e13174c384)<br />
-[TitleObj()](#980cf4e5d783b767ca441cbf071099d0f16f4d1a)<br />
-[@Property: level](#011984f79f02e5c60873b19559bc142571679ea2)<br />
-[@Property: title](#8d95c4c692e61b9ab4b1f02ac0758af0b1b9bc45)<br />
-[TitleObj.__init__(self, title, level)](#21f2d461732e11dbfdaa658a6b6d5cc61c999328)<br />
-[TitleObj.__repr__(self)](#610a9fe9960395f8ac80cb52ffc9b35d384c5502)<br />
-[TitleObj.__str__(self)](#208f8142eb3011693506258da1362ee3b2d81c7b)<br />
-[TitleObj.getanchor(self)](#3ae67beddf00ea4d0c3dd55d0a6e32b0807ffe00)<br />
-[wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))](#4ab498195731ad085c678a9e05353f0d72327513)<br />
+This package is distributed under the [GPLv3 license](./LICENSE)### Runtime
 
-### <a id="92dd76e2526bcd318d24dd06abc492ddd9aa060a"></a> ConvMD()
+```
+python-3.6.x
 
+```
+### Requirements
+
+```
+setuptools>=36.2.7
+pycodestyle>=2.3.1
+
+```
+### UML Diagram
+![alt text](pictures/classes_docstring2md.png)
+
+### Objects
+[MyConst()](#myconst)<br />
+[LineType()](#linetype)<br />
+[PythonObjType()](#pythonobjtype)<br />
+[Tag()](#tag)<br />
+[ObjVisitor()](#objvisitor)<br />
+[ObjVisitor.get_tree()](#objvisitorget_tree)<br />
+[ObjVisitor.visit_Module()](#objvisitorvisit_module)<br />
+[ObjVisitor.visit_ClassDef()](#objvisitorvisit_classdef)<br />
+[ObjVisitor.visit_FunctionDef()](#objvisitorvisit_functiondef)<br />
+[ConvMD()](#convmd)<br />
+[ConvMD.repl_str()](#convmdrepl_str)<br />
+[ConvMD.repl_str.tags_decorator()](#convmdrepl_strtags_decorator)<br />
+[ConvMD.repl_str.tags_decorator.func_wrapper()](#convmdrepl_strtags_decoratorfunc_wrapper)<br />
+[ConvMD.repl_beg_end()](#convmdrepl_beg_end)<br />
+[ConvMD.repl_beg_end.tags_decorator()](#convmdrepl_beg_endtags_decorator)<br />
+[ConvMD.repl_beg_end.tags_decorator.func_wrapper()](#convmdrepl_beg_endtags_decoratorfunc_wrapper)<br />
+[ConvMD.add_tag()](#convmdadd_tag)<br />
+[ConvMD.add_tag.tags_decorator()](#convmdadd_tagtags_decorator)<br />
+[ConvMD.add_tag.tags_decorator.func_wrapper()](#convmdadd_tagtags_decoratorfunc_wrapper)<br />
+[DocString2MD()](#docstring2md)<br />
+[DocString2MD.import_module()](#docstring2mdimport_module)<br />
+[DocString2MD.get_doc()](#docstring2mdget_doc)<br />
+[PytFile()](#pytfile)<br />
+[PytFile.filename()](#pytfilefilename)<br />
+[PytFile.filename()](#pytfilefilename)<br />
+[PytFile.exists()](#pytfileexists)<br />
+[PytFile.read()](#pytfileread)<br />
+[run()](#run)<br />
+[ExtractPythonModule()](#extractpythonmodule)<br />
+[ExtractPythonModule.module()](#extractpythonmodulemodule)<br />
+[ExtractPythonModule.docstring()](#extractpythonmoduledocstring)<br />
+[ExtractPythonModule.pkg_main_docstring()](#extractpythonmodulepkg_main_docstring)<br />
+[ExtractPythonModule.toc()](#extractpythonmoduletoc)<br />
+[ExtractPythonModule.ismodule()](#extractpythonmoduleismodule)<br />
+[ExtractPythonModule.read()](#extractpythonmoduleread)<br />
+
+#### MyConst()
 ```python
-class ConvMD(object):
+classe MyConst():
 ```
 
-> <br />
-> Prepare MD string<br />
-> <br />
-#### <a id="a340e0fb29090ceda39c781d0287b409a6d506b2"></a> ConvMD.add_tag(begin_tag, end_tag)
-
-```python
-def ConvMD.add_tag(begin_tag, end_tag):
+```
+params 
 ```
 
+#### LineType()
+```python
+classe LineType():
+```
+
+```
+params 
+```
+
+#### PythonObjType()
+```python
+classe PythonObjType():
+```
+
+```
+params 
+```
+
+#### Tag()
+```python
+classe Tag():
+```
+
+```
+params 
+```
+
+#### ObjVisitor()
+```python
+classe ObjVisitor():
+```
+
+```
+None
+```
+
+##### ObjVisitor.get_tree()
+```python
+
+def ObjVisitor.get_tree(self, source):
+```
 > <br />
-> Decorator - add a tag<br />
+> None<br />
 > <br />
-> <b>Example:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ('__', '__') => __ TXT __<br />
+##### ObjVisitor.visit_Module()
+```python
+
+def ObjVisitor.visit_Module(self, node):
+```
+> <br />
+> None<br />
+> <br />
+##### ObjVisitor.visit_ClassDef()
+```python
+
+def ObjVisitor.visit_ClassDef(self, node):
+```
+> <br />
+> None<br />
+> <br />
+##### ObjVisitor.visit_FunctionDef()
+```python
+
+def ObjVisitor.visit_FunctionDef(self, node):
+```
+> <br />
+> None<br />
+> <br />
+#### ConvMD()
+```python
+classe ConvMD(object):
+```
+
+```
+Prepare MD string
+```
+
+##### ConvMD.repl_str()
+```python
+
+def ConvMD.repl_str(old_string, new_string):
+```
+> <br />
+> Decorator - search & replace a string by another string<br />
+> Example : replace space by a HTML tag.<br />
 > <br />
 > <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  beg_tag (str)<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  end_tag (str)<br />
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  old_string (str): string to search<br />
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  new_string (str): new string<br />
 > <br />
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  decorated function<br />
 > <br />
-#### <a id="dd0d60e32851a831bb2a9357ccf94a0aa0775ac9"></a> ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag)
-
+###### ConvMD.repl_str.tags_decorator()
 ```python
+
+def ConvMD.repl_str.tags_decorator(func):
+```
+> <br />
+> decorator <br />
+> <br />
+####### ConvMD.repl_str.tags_decorator.func_wrapper()
+```python
+@wraps(func)
+def ConvMD.repl_str.tags_decorator.func_wrapper(*args, **kwargs):
+```
+> <br />
+> wrapper <br />
+> <br />
+##### ConvMD.repl_beg_end()
+```python
+
 def ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag):
 ```
-
 > <br />
 > Decorator - replace the beggining and the end<br />
 > <br />
@@ -207,88 +300,87 @@ def ConvMD.repl_beg_end(begin_regexp, end_regexp, begin_tag, end_tag):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  decorated function<br />
 > <br />
-#### <a id="93e1829c90b94cb63174a733726fc9158da243b1"></a> ConvMD.repl_str(old_string, new_string)
-
+###### ConvMD.repl_beg_end.tags_decorator()
 ```python
-def ConvMD.repl_str(old_string, new_string):
-```
 
+def ConvMD.repl_beg_end.tags_decorator(func):
+```
 > <br />
-> Decorator - search & replace a string by another string<br />
-> Example : replace space by a HTML tag.<br />
+> decorator <br />
+> <br />
+####### ConvMD.repl_beg_end.tags_decorator.func_wrapper()
+```python
+@wraps(func)
+def ConvMD.repl_beg_end.tags_decorator.func_wrapper(*args, **kwargs):
+```
+> <br />
+> wrapper <br />
+> <br />
+##### ConvMD.add_tag()
+```python
+
+def ConvMD.add_tag(begin_tag, end_tag):
+```
+> <br />
+> Decorator - add a tag<br />
+> <br />
+> <b>Example:</b><br />
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ('__', '__') => __ TXT __<br />
 > <br />
 > <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  old_string (str): string to search<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  new_string (str): new string<br />
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  beg_tag (str)<br />
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  end_tag (str)<br />
 > <br />
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  decorated function<br />
 > <br />
-### <a id="1a1bc9270ef9889e3e1ff955ad391cd75f9ceb3e"></a> DocString2MD()
-
+###### ConvMD.add_tag.tags_decorator()
 ```python
-class DocString2MD(object):
+
+def ConvMD.add_tag.tags_decorator(func):
+```
+> <br />
+> decorator <br />
+> <br />
+####### ConvMD.add_tag.tags_decorator.func_wrapper()
+```python
+@wraps(func)
+def ConvMD.add_tag.tags_decorator.func_wrapper(self, *args):
+```
+> <br />
+> wrapper <br />
+> <br />
+#### DocString2MD()
+```python
+classe DocString2MD(object):
 ```
 
-> <br />
-> Class DocString2MD : export Google docstring to MD File.<br />
-> <br />
-#### <a id="efca858446dedd94f56d684293129b4b92e514db"></a> @Property: module_name
+```
+Class DocString2MD : export Google docstring to MD File.
 
-```python
-@property
-def DocString2MD.module_name(self):
-@module_name.setter
-def DocString2MD.module_name(self, module_name):
-
+Use:
+    >>> doc = DocString2MD("docstring2md")
+    >>> doc.import_module()
+    True
+    >>> result = doc.get_doc()
+    >>> result = result.split("\n")
+    >>> print(result[0])
+    # docstring2md
 ```
 
-> <br />
-> @Property<br />
-> <br />
-#### <a id="49efdc7fb225b82ba060ca1b356aad67e5a0c1e2"></a> DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None)
-
+##### DocString2MD.import_module()
 ```python
-def DocString2MD.__init__(self, module_name, export_file=None, runtime_file=None, requirements_file=None, uml_file=None):
+
+def DocString2MD.import_module(self):
 ```
-
 > <br />
-> Init the class<br />
-> This function define default attributs.<br />
+> import all infos<br />
 > <br />
-> <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  module_name (str): /path/to/the/module/<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  export_file (str): /path/to/the/doc/file - None by default<br />
-> <br />
-> <b>Attributes:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  self.__export_file (str): /path/to/the/doc/file - None by default<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  self.__my_module<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  self.__output<br />
-> <br />
-> <b>Returns:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  obj<br />
-> <br />
-#### <a id="4ecf66e6c1632fbe76c05e842b961fc9b7434836"></a> DocString2MD.__writedoc(self)
-
+##### DocString2MD.get_doc()
 ```python
-def DocString2MD.__writedoc(self):
-```
 
-> <br />
-> Writes the content in the file<br />
-> <br />
-> <b>args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
-> <br />
-> <b>Returns:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bool: The return value. True for success, False otherwise.<br />
-> <br />
-#### <a id="8b167cfe759596ebe08fe184e4143d650b9948ea"></a> DocString2MD.get_doc(self)
-
-```python
 def DocString2MD.get_doc(self):
 ```
-
 > <br />
 > Extract the doc<br />
 > Returns self.__output or self.__writedoc<br />
@@ -299,613 +391,141 @@ def DocString2MD.get_doc(self):
 > <b>Returns:</b><br />
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  str: self.__output<br />
 > <br />
-#### <a id="ab424550d18ae8bae0a1ce66f4d41e8ac19750a9"></a> DocString2MD.import_module(self)
-
+#### PytFile()
 ```python
-def DocString2MD.import_module(self):
+classe PytFile(object):
 ```
 
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="8daf5988f2974abc7e6394d3c745d44ba43fd5c7"></a> DocStringObj()
-
-```python
-class DocStringObj(object):
+```
+>>> data_file = PytFile("lorem")
+Traceback (most recent call last):
+...
+OSError: File not found !
+>>> data_file = PytFile(None)
+>>> data_file.exists()
+False
+>>> fstab = PytFile("/etc/fstab")
+>>> fstab.filename.stem
+'fstab'
+>>> fstab
+/etc/fstab
+>>> # pathlib to run the test everywhere
+>>> import pathlib
+>>> path = str(pathlib.Path(__file__).resolve().parent) + "/"
+>>> license = PytFile(path + "../LICENSE")
+>>> license.filename.stem
+'LICENSE'
+>>> license.exists()
+True
+>>> #print(license.read())
 ```
 
-> <br />
-> String to store and prepare the docstring.<br />
-> This object will become an attribute.<br />
-> <br />
-#### <a id="6f76a1931dcc00e9d3c07f0346c22a49bb507bc8"></a> @Property: value
-
-```python
-@property
-def DocStringObj.value(self):
-@value.setter
-def DocStringObj.value(self, value):
-
-```
-
-> <br />
-> @Property<br />
-> <br />
-#### <a id="87af9694b9afa3eaf10e3cb6657f153ee4209b3c"></a> DocStringObj.__init__(self, value)
-
-```python
-def DocStringObj.__init__(self, value):
-```
-
-> <br />
-> Store the docstring<br />
-> <br />
-#### <a id="ac39c86c895b381c7620540f1b29b571cd8d58e0"></a> DocStringObj.__repr__(self)
-
-```python
-@ConvMD.repl_beg_end(Tag.beg_str, Tag.end_str, Tag.quote, Tag.html_cr)
-@ConvMD.repl_beg_end(Tag.beg_str, Tag.end_strh, Tag.beg_b, Tag.end_bh)
-@ConvMD.repl_str(Tag.tab, Tag.html_tab)
-@ConvMD.add_tag(Tag.cr, Tag.cr)
-def DocStringObj.__repr__(self):
-```
-
-> <br />
-> Provide the new docstring with MD tags.<br />
-> <br />
-#### <a id="b9282981f37b00239f3eff16d9da3412466c00ff"></a> DocStringObj.__str__(self)
-
-```python
-def DocStringObj.__str__(self):
-```
-
-> <br />
-> Call repr<br />
-> <br />
-### <a id="2498540c5ed9310facae548d4ba9cd71b162470d"></a> ExtractPythonModule()
-
-```python
-class ExtractPythonModule(object):
-```
-
-> <br />
-> Object in order to extract Python functions, classes....<br />
-> <br />
-#### <a id="c215001384acf81c10359befa3395fa69ce35a55"></a> ExtractPythonModule.__check_module(func)
-
-```python
-def ExtractPythonModule.__check_module(func):
-```
-
-> <br />
-> Decorator - Checks if module can be imported.<br />
-> Updates self.__module_spec in order to import the module.<br />
-> <br />
-> <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
-> <br />
-> <b>Retuns:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bool: The return value. True for success, False otherwise.<br />
-> <br />
-#### <a id="359967e59a746508900585f22f68bc1a99fa3f08"></a> ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None)
-
-```python
-def ExtractPythonModule.__extract(self, my_pythonobj, inspectmembers, level=0, decorator=None):
-```
-
-> <br />
-> Inspects classes & functions in a moddule.<br />
-> Store information in a PythonObj object.<br />
-> <br />
-> <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  inspectmembers (obj): inspect obect<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  my_pythonobj (PythonObj): object to define a Python member<br />
-> <br />
-> <b>Returns:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
-> <br />
-#### <a id="c50284af2411ebfdec40bcd172207e4b340f2023"></a> ExtractPythonModule.__extractdecorator(self, member)
-
-```python
-def ExtractPythonModule.__extractdecorator(self, member):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="27b22c82207664254f720cc931426a77bf3b1bf5"></a> ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name)
-
-```python
-def ExtractPythonModule.__extractproperties(self, my_pythonobj, inspectmembers, level, decorator, cls_name):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="c5f653d758516a2dd23a12d8a4efef8324d9b062"></a> ExtractPythonModule.__findinline(self, line, search_item)
-
-```python
-def ExtractPythonModule.__findinline(self, line, search_item):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="aec9f32e063906787c5906d4fb3b7a3ad54d9dd0"></a> ExtractPythonModule.__init__(self, module_name)
-
-```python
-def ExtractPythonModule.__init__(self, module_name):
-```
-
-> <br />
-> Init<br />
-> <br />
-#### <a id="0305ba5a01d7af75a39a63a952e6532d836d0830"></a> ExtractPythonModule.__linetype(self, line)
-
-```python
-def ExtractPythonModule.__linetype(self, line):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="a7312d4fccc4e5885ad9dbe26bda903340444366"></a> ExtractPythonModule.extract(self)
-
-```python
-def ExtractPythonModule.extract(self):
-```
-
-> <br />
-> Defines module object and extracts all members.<br />
-> <br />
-> <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
-> <br />
-> <b>Returns:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
-> <br />
-#### <a id="08f40447cb4474fe9b892c10ad6b4c88ee0e341f"></a> ExtractPythonModule.import_module(self)
-
-```python
-@__check_module
-def ExtractPythonModule.import_module(self):
-```
-
-> <br />
-> Check module<br />
-> Import the module via the passed in module specification<br />
-> Returns the newly imported module and updates attributes self.__module<br />
-> <br />
-> <b>Args:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  None<br />
-> <br />
-> <b>Returns:</b><br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  bool: The return value. True for success, False otherwise.<br />
-> <br />
-### <a id="d65fbaed25ebe482588b51e3000c5d65f7f0b6a9"></a> LineType()
-
-```python
-class LineType:
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="393a95ae46f991e26e9ef12082af0ceeec81c025"></a> MembersObj()
-
-```python
-class MembersObj(object):
-```
-
-> <br />
-> Dict() to store a python object's members.<br />
-> This object will become an attribute.<br />
-> <br />
-#### <a id="5bb035ab7a37d6fb4ac0d63feb7ae1f0a91947a8"></a> MembersObj.__getitem__(self, index)
-
-```python
-def MembersObj.__getitem__(self, index):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="f8edcec0fb8181a28713b55f08a59a4881bbb9a7"></a> MembersObj.__init__(self)
-
-```python
-def MembersObj.__init__(self):
-```
-
-> <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
-> <br />
-#### <a id="21079dc8d29c6d783d26b1d2426a62f5a1af0c0b"></a> MembersObj.__len__(self)
-
-```python
-def MembersObj.__len__(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="8a055d95e4aac47645e9e5e966536ce1f1a7c3d5"></a> MembersObj.__repr__(self)
-
-```python
-def MembersObj.__repr__(self):
-```
-
-> <br />
-> Return repr(self).<br />
-> <br />
-#### <a id="bc654d0b0ccbd43dbc3e3ef5731d9dfd4ab4b98a"></a> MembersObj.__setitem__(self, index, value)
-
-```python
-def MembersObj.__setitem__(self, index, value):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="d1491d742bd8ce5f9f09df77cfc00f9809f51ba2"></a> MembersObj.__str__(self)
-
-```python
-def MembersObj.__str__(self):
-```
-
-> <br />
-> Return str(self).<br />
-> <br />
-#### <a id="4bbbf05855d621ad0fcedef8da6c57ffd4a0396e"></a> MembersObj.items(self)
-
-```python
-def MembersObj.items(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="dd169b053302842c9d4e56e149472595afde1411"></a> MembersObj.sortkeys(self)
-
-```python
-def MembersObj.sortkeys(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="ad7e199936a9f0900d22f9146d9c6122e07bad8f"></a> ModuleObj()
-
-```python
-class ModuleObj(PythonObj):
-```
-
-> <br />
-> Class in order to register module informations<br />
-> __str__ is used to export with MD format.<br />
-> <br />
-#### <a id="2d22ce06ca9358b7c3edffc10f0bdee205d1911c"></a> ModuleObj.__init__(self, name, full_name, docstring, level=0)
-
-```python
-def ModuleObj.__init__(self, name, full_name, docstring, level=0):
-```
-
-> <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
-> <br />
-#### <a id="8b175a86b227b43e4afc2c119f380c060ce264b3"></a> ModuleObj.__repr__(self)
-
-```python
-def ModuleObj.__repr__(self):
-```
-
-> <br />
-> Return repr(self).<br />
-> <br />
-#### <a id="1c7845109b61b62b699dd9f1423f808d757410a8"></a> ModuleObj.__str__(self)
-
-```python
-def ModuleObj.__str__(self):
-```
-
-> <br />
-> Return str(self).<br />
-> <br />
-#### <a id="7fbcc4146a8608bdfecd6c87e4a940598c913196"></a> ModuleObj.getallstr(self, member=None)
-
-```python
-def ModuleObj.getallstr(self, member=None):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="18e852be5041c36903e5fd149222a046dd707ff6"></a> ModuleObj.gettoc(self, member=None)
-
-```python
-def ModuleObj.gettoc(self, member=None):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="689ea8cf936d2e124206fa9cb72dc92c8c24595c"></a> PythonObj.getlink(self)
-
-```python
-def PythonObj.getlink(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="e291187727c46a2a7059bc2ccf1382ddbbad7a35"></a> MyConst()
-
-```python
-class MyConst:
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="f8db111c5a1f08313ce3428f1d33236b5e45e5aa"></a> PythonDefinitionObj()
-
-```python
-class PythonDefinitionObj(object):
-```
-
-> <br />
-> <b>String so store and prepare the object definition:</b><br />
-> Example : def function_name(*args)<br />
-> This object will become an attribute.<br />
-> <br />
-#### <a id="6f76a1931dcc00e9d3c07f0346c22a49bb507bc8"></a> @Property: value
-
+##### PytFile.filename()
 ```python
 @property
-def PythonDefinitionObj.value(self):
-@value.setter
-def PythonDefinitionObj.value(self, value):
-
+def PytFile.filename(self):
 ```
-
 > <br />
-> @Property<br />
+> path to the module<br />
 > <br />
-#### <a id="f92b4947fd1e614b2dcab47aa233379b58ccdefe"></a> PythonDefinitionObj.__init__(self, value)
-
+##### PytFile.filename()
 ```python
-def PythonDefinitionObj.__init__(self, value):
+@setter
+def PytFile.filename(self, value):
 ```
-
 > <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
+> Store the path<br />
 > <br />
-#### <a id="bbf1d86197e458205810c7b3ee145de586016b66"></a> PythonDefinitionObj.__repr__(self)
-
+##### PytFile.exists()
 ```python
-@ConvMD.add_tag(Tag.beg_py, Tag.end_py)
-def PythonDefinitionObj.__repr__(self):
+
+def PytFile.exists(self):
 ```
-
 > <br />
-> Provide the definition string with MD tags.<br />
+> file exists<br />
 > <br />
-#### <a id="d178bfa378031ea38a69d09ccb07288e60c4796f"></a> PythonDefinitionObj.__str__(self)
-
+##### PytFile.read()
 ```python
-def PythonDefinitionObj.__str__(self):
+
+def PytFile.read(self):
 ```
-
 > <br />
-> Call repr<br />
+> read the text<br />
 > <br />
-### <a id="780f202252b8da2c8bc85f829e382aedbac554de"></a> PythonObj()
-
+#### run()
 ```python
-class PythonObj(object):
+
+def run():
 ```
-
 > <br />
-> Class in order to register object informations<br />
-> __str__ is used to export with MD format.<br />
+> Main function<br />
 > <br />
-#### <a id="32fa5e8d0fc098c6b016d2b3f8456f79f9d19edd"></a> PythonObj.__init__(self, name, full_name, docstring, level)
-
+#### ExtractPythonModule()
 ```python
-def PythonObj.__init__(self, name, full_name, docstring, level):
+classe ExtractPythonModule(object):
 ```
 
-> <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
-> <br />
-#### <a id="42878b1f331162ae5974baefb33db40a796468d9"></a> PythonObj.__repr__(self)
+```
+Object in order to extract Python functions, classes....
 
-```python
-def PythonObj.__repr__(self):
+Use:
+    >>> mod = ExtractPythonModule("oups...")
+    >>> mod.read()
+    Traceback (most recent call last):
+    ...
+    ModuleNotFoundError: No module named 'oups'
+    >>> mod = ExtractPythonModule("json")
+    >>> mod.read()
+    >>> # print(mod.pkg_main_docstring)
+    >>> # print(mod.docstring)
 ```
 
-> <br />
-> Return repr(self).<br />
-> <br />
-#### <a id="d073303de05e300512174a05689ceeafb8aae5df"></a> PythonObj.__str__(self)
-
-```python
-def PythonObj.__str__(self):
-```
-
-> <br />
-> Return str(self).<br />
-> <br />
-#### <a id="689ea8cf936d2e124206fa9cb72dc92c8c24595c"></a> PythonObj.getlink(self)
-
-```python
-def PythonObj.getlink(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="99b7f0b4d121c98a3c7fd7ceb688997305523603"></a> ReadFile()
-
-```python
-class ReadFile(object):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-#### <a id="4419219f9e4f4d1f83af7a9364d51e4c51a9cccf"></a> @Property: filename
-
+##### ExtractPythonModule.module()
 ```python
 @property
-def ReadFile.filename(self):
-@filename.setter
-def ReadFile.filename(self, filename):
-
+def ExtractPythonModule.module(self):
 ```
-
 > <br />
-> @Property<br />
+> None<br />
 > <br />
-#### <a id="c8e5cccc0708cd0536dd47de06263f45c8e2ecb2"></a> ReadFile.__init__(self, filename)
-
-```python
-def ReadFile.__init__(self, filename):
-```
-
-> <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
-> <br />
-#### <a id="32b969e1552a6e1cab80c5f07855d7400c34646c"></a> ReadFile.__repr__(self)
-
-```python
-def ReadFile.__repr__(self):
-```
-
-> <br />
-> Return repr(self).<br />
-> <br />
-#### <a id="8a8aa432137a04f8144a93d22b9c61b774a3a2e1"></a> ReadFile.__str__(self)
-
-```python
-def ReadFile.__str__(self):
-```
-
-> <br />
-> Return str(self).<br />
-> <br />
-#### <a id="e5f2319ad83767af70e8fed672c4f7680b176f18"></a> ReadFile.get(self)
-
-```python
-def ReadFile.get(self):
-```
-
-> <br />
-> open & read the file<br />
-> Returns the content<br />
-> <br />
-#### <a id="55921ecc8e7838c202ccc204e430a0932d1edd66"></a> ReadFile.isdefined(self)
-
-```python
-def ReadFile.isdefined(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="fcd5f72200e4464c35485721a8a2b0e13174c384"></a> Tag()
-
-```python
-class Tag:
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="980cf4e5d783b767ca441cbf071099d0f16f4d1a"></a> TitleObj()
-
-```python
-class TitleObj(object):
-```
-
-> <br />
-> String to store and prepare MD title<br />
-> This object will become an attribute.<br />
-> <br />
-#### <a id="011984f79f02e5c60873b19559bc142571679ea2"></a> @Property: level
-
+##### ExtractPythonModule.docstring()
 ```python
 @property
-def TitleObj.level(self):
-@level.setter
-def TitleObj.level(self, level):
-
+def ExtractPythonModule.docstring(self):
 ```
-
 > <br />
-> @Property<br />
+> None<br />
 > <br />
-#### <a id="8d95c4c692e61b9ab4b1f02ac0758af0b1b9bc45"></a> @Property: title
-
+##### ExtractPythonModule.pkg_main_docstring()
 ```python
 @property
-def TitleObj.title(self):
-@title.setter
-def TitleObj.title(self, title):
-
+def ExtractPythonModule.pkg_main_docstring(self):
 ```
-
 > <br />
-> @Property<br />
+> None<br />
 > <br />
-#### <a id="21f2d461732e11dbfdaa658a6b6d5cc61c999328"></a> TitleObj.__init__(self, title, level)
-
+##### ExtractPythonModule.toc()
 ```python
-def TitleObj.__init__(self, title, level):
+@property
+def ExtractPythonModule.toc(self):
 ```
-
 > <br />
-> Init => store the sting in value and level (H1/H2/H3/...)<br />
+> None<br />
 > <br />
-#### <a id="610a9fe9960395f8ac80cb52ffc9b35d384c5502"></a> TitleObj.__repr__(self)
-
+##### ExtractPythonModule.ismodule()
 ```python
-def TitleObj.__repr__(self):
+
+def ExtractPythonModule.ismodule(self):
 ```
-
 > <br />
-> Provide the MD string according to the level<br />
+> None<br />
 > <br />
-#### <a id="208f8142eb3011693506258da1362ee3b2d81c7b"></a> TitleObj.__str__(self)
-
+##### ExtractPythonModule.read()
 ```python
-def TitleObj.__str__(self):
+
+def ExtractPythonModule.read(self):
 ```
+> <br />
+> None<br />
+> <br />
 
-> <br />
-> Return str(self).<br />
-> <br />
-#### <a id="3ae67beddf00ea4d0c3dd55d0a6e32b0807ffe00"></a> TitleObj.getanchor(self)
-
-```python
-def TitleObj.getanchor(self):
-```
-
-> <br />
-> <b>- docstring empty -</b><br />
-> <br />
-### <a id="4ab498195731ad085c678a9e05353f0d72327513"></a> wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',))
-
-```python
-def wraps(wrapped, assigned=('__module__', '__name__', '__qualname__', '__doc__', '__annotations__'), updated=('__dict__',)):
-```
-
-> <br />
-> Decorator factory to apply update_wrapper() to a wrapper function<br />
-> <br />
-> Returns a decorator that invokes update_wrapper() with the decorated<br />
-> function as the wrapper argument and the arguments to wraps() as the<br />
-> remaining arguments. Default arguments are as for update_wrapper().<br />
-> This is a convenience function to simplify applying partial() to<br />
-> update_wrapper().<br />
-> <br />
---- 0.058393239974975586 seconds ---
